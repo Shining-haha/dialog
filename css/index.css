@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/*引入字体图片库*/
+@import './font/iconfont.css';
+
+.md-overlay{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9998;
+	background: rgba(0,0,0,0.5);
+}
+.md-dialog{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 9999;
+	min-width: 500px;
+	min-height: 300px;
+	max-height: 700px;
+	background: #fff;
+	border-radius: 5px;
+}
+.md-dialog-header{
+	position: absolute;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+	padding: 0 20px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e9e9e9;
+}
+.md-dialog .md-title{
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+.md-dialog .md-close{
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+.md-dialog-content{
+	margin: 65px 20px;
+    overflow-y: auto;
+}
+.md-dialog-footer{
+	position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	padding: 0 20px;
+	overflow: hidden;
+    width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: right;
+	border-top: 1px solid #e9e9e9;
+}
+.md-dialog-footer .md-btn{
+	margin-left: 15px;
+	padding: 0 20px;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	cursor: pointer;
+	outline:none;
+}
+.md-dialog-footer .md-btn:first-child{
+	margin-left: 0;
+}
+.md-dialog-footer .md-btn:hover{
+	color: #2dbfff;
+	border: 1px solid #2dbfff;
+}
+.md-dialog-footer .md-btn-highlight{
+	color: #fff;
+	background: #2db7f5;
+	border: 1px solid #2db7f5;
+}
+.md-dialog-footer .md-btn-highlight:hover{
+	color: #fff;
+	background: #42c3fd;
+	border: 1px solid #42c3fd;
+}

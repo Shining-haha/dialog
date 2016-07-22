@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<title>模态对话框</title>
+<link href="./css/reset.css" rel="stylesheet">
+<link href="./css/index.css" rel="stylesheet">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/modalDialog.js"></script>
+</head>
+<body>
+<div class="mydialog">
+	<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+	<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+	<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+</div>
+<button class="mybtn">点击显示我的弹框</button>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".mybtn").click(function(){
+		$(".mydialog").show();
+	});
+	$(".mydialog").modaldialog({
+		'visible':true, //默认弹框是否打开
+		//'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+		//'haveheader':true, //是否需要头部,默认true
+        'closable':true, //头部关闭按钮是否显示,默认true
+		'title':'我的弹框', //弹框头部标题
+		'dragdrop': true,
+		'buttons':[
+				{'label':'取消','class':'',
+					onClick:function(){
+						console.log('按钮一');
+					}
+				}, //按钮文本，按钮样式，按钮回调方式
+				{'label':'确定','class':'md-btn-highlight',
+					onClick:function(){
+						console.log('按钮二');
+					}
+				},
+				{'label':'我知道了','class':'md-btn-highlight',
+					onClick:function(){
+						console.log('按钮三');
+					}
+				},
+			], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+		//'style':{'width':'300px','height':'300px','top':150}, //设置弹框样式
+		//'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+		onClose: function(){
+			console.log('关闭弹框');
+		}
+	});
+});
+/*$(document).ready(function(){
+	$(".mydialog").find(".md-dialog").mousemove(function(e){
+		var e = e || window.event,
+			x = e.clientX,
+			y = e.clientY,
+			lt = $(this).offsetLeft,
+			tp = $(this).offsettop;
+
+			var ff = $(this);
+			var lt=ff.offsetLeft;
+			var tp=ff.offsetTop;
+			alert(lt+"--"+tp);
+	});
+});*/
+</script>
+</body>
+</html>
+
+
+<!-- <div class="md-modaldialog">
+	<div class="md-overlay"></div>
+	<div class="md-dialog">
+		<div class="md-dialog-header">
+			<p class="md-title">弹框标题</p>
+			<span class="iconfont icon-close md-close"></span>
+		</div>
+		<div class="md-dialog-content">
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+			<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+		</div>
+		<div class="md-dialog-footer">
+			<button class="md-btn">取消</button>
+			<button class="md-btn md-btn-highlight">确定</button>
+		</div>
+	</div>
+</div> -->
