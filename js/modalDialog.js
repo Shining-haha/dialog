@@ -10,11 +10,12 @@
 
     /*模态弹出框默认属性*/
     ModalDialog.DEFAULTS = {
-        'visible':true, //默认弹框是否打开
+        'visible':false, //默认弹框关闭,默认false
         'haveheader':true, //是否需要头部,默认true
         'closable':true, //头部关闭按钮是否显示,默认true
-        'maskClosable':true, //是否允许点击蒙层关闭弹框,默认true
-        'dragdrop': false //是否允许弹框拖拽
+        'maskClosable':false, //是否允许点击蒙层关闭弹框,默认false
+        'dragdrop': false, //是否允许弹框拖拽,默认false
+        'title':'提示' //弹框头部标题
     };
 
     /*模态弹出框初始化*/
@@ -68,9 +69,19 @@
         }else if(options.footerstyle === 'center'){ //设置底部按钮居中显示
             $footer.css('text-align','center');
         }
-        options.style && $(".md-dialog").css(options.style); //设置弹框样式
-        $content.height($(".md-dialog").height()-($footer.height()+$(".md-dialog-header").height()+2+30)); //设置内容部分的高度；//2：边框的高度；30：margin的上下间距
-        !options.visible && this.$element.find(".md-modaldialog").parent().hide();
+        $dialog = this.$element.find(".md-dialog");
+        options.width && $dialog.css('width',options.width); //设置弹框宽度
+        options.height && $dialog.css('height',options.height); //设置弹框宽度
+        if($dialog.find(".md-dialog-header").height()==null) {
+            var hdheight = 0;
+            $content.css({'margin-top':20});
+        }else{
+            var hdheight = $dialog.find(".md-dialog-header").height();
+        }
+        $content.height($dialog.height()-($footer.height()+hdheight+2+30)); //设置内容部分的高度；//2：边框的高度；30：margin的上下间距
+        /* 显示弹框 */
+        options.visible ? $dialog.parent().parent().show() : $dialog.parent().parent().hide();
+
     };
     /*事件初始化*/
     ModalDialog.prototype.initEvent = function() {
