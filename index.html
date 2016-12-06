@@ -16,19 +16,21 @@
 	<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
 	<p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
 </div>
-<button class="mybtn">点击显示我的弹框</button>
+
+<button class="mybtn">点击</button>
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".mybtn").click(function(){
 		$(".mydialog").show();
 	});
+
 	$(".mydialog").modaldialog({
-		'visible':true, //默认弹框是否打开
-		//'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
-		//'haveheader':true, //是否需要头部,默认true
+		//'visible':true, //弹框打开,默认false
+		'haveheader':true, //是否需要头部,默认true
         'closable':true, //头部关闭按钮是否显示,默认true
-		'title':'我的弹框', //弹框头部标题
-		'dragdrop': true,
+		'maskClosable':true, //是否允许点击蒙层关闭弹框,默认false
+		//'dragdrop': true,
+		//'title':'我的弹框', //弹框头部标题
 		'buttons':[
 				{'label':'取消','class':'',
 					onClick:function(){
@@ -46,12 +48,16 @@ $(document).ready(function(){
 					}
 				},
 			], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
-		//'style':{'width':'300px','height':'300px','top':150}, //设置弹框样式
+		'width': 200, //设置弹框宽度
+		'height': 50, //设置弹框高度
 		//'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
 		onClose: function(){
 			console.log('关闭弹框');
 		}
 	});
+
+	
+
 });
 </script>
 </body>
